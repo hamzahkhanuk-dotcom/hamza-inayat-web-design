@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hamza Inayat Web Design — Premium Websites for Small Businesses | London</title>
+<meta name="description" content="Hamza Inayat Web Design builds premium, fast, mobile-first websites for small businesses — WordPress, Shopify, landing pages and custom builds. Based in London, working worldwide.">
+<meta property="og:title" content="Hamza Inayat Web Design">
+<meta property="og:description" content="Premium websites for small businesses — WordPress, Shopify, landing pages and custom builds. London, UK.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#05060a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305060a'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial Black,Arial' font-weight='900' font-size='28' fill='%2300f0ff'%3EHI%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05060a;
+  --bg2:#0a0c14;
+  --card:rgba(255,255,255,.035);
+  --line:rgba(255,255,255,.09);
+  --text:#eef1f7;
+  --muted:#9aa3b5;
+  --cyan:#00f0ff;
+  --violet:#8b5cff;
+  --pink:#ff3d9a;
+  --grad:linear-gradient(120deg,var(--cyan),var(--violet) 55%,var(--pink));
+  --r:22px;
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+h1,h2,h3,.display{font-family:Syne,Inter,sans-serif;letter-spacing:-.02em;line-height:1.05}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);font-weight:600}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+
+/* grain */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.05;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .25s ease,box-shadow .25s ease,background .25s ease,border-color .25s ease;cursor:pointer;border:1px solid transparent;white-space:nowrap}
+.btn-primary{background:var(--text);color:#05060a}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 40px -8px rgba(0,240,255,.55)}
+.btn-ghost{border-color:var(--line);background:rgba(255,255,255,.03);backdrop-filter:blur(10px)}
+.btn-ghost:hover{border-color:rgba(0,240,255,.5);transform:translateY(-2px)}
+.btn svg{width:18px;height:18px}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s}
+nav.scrolled{background:rgba(5,6,10,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:600}
+.logo-mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-family:Syne,Inter,system-ui,sans-serif;font-weight:800;font-size:.95rem;background:#0c0f18;border:1px solid var(--line);position:relative;overflow:hidden}
+.logo-mark::before{content:"";position:absolute;inset:-1px;border-radius:11px;padding:1px;background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.logo small{display:block;font-size:.72rem;color:var(--muted);font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.nav-links{display:flex;gap:34px;font-size:.92rem;color:var(--muted)}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{padding:11px 20px;font-size:.88rem}
+.burger{display:none;background:none;border:0;color:var(--text);width:40px;height:40px;cursor:pointer}
+.mobile-menu{display:none}
+
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:130px 0 90px;overflow:hidden}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 30%,transparent 75%)}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;animation:float 16s ease-in-out infinite}
+.orb.o1{width:520px;height:520px;background:var(--violet);top:-120px;right:-80px}
+.orb.o2{width:420px;height:420px;background:var(--cyan);bottom:-140px;left:-120px;opacity:.35;animation-delay:-5s}
+.orb.o3{width:280px;height:280px;background:var(--pink);top:40%;right:25%;opacity:.22;animation-delay:-9s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.08)}66%{transform:translate(-30px,25px) scale(.95)}}
+.hero-in{position:relative;z-index:2}
+.hero h1{font-size:clamp(2.8rem,7.6vw,6.6rem);font-weight:800;margin:26px 0 28px;max-width:14ch}
+.hero p.lead{font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--muted);max-width:56ch;margin-bottom:40px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:38px;flex-wrap:wrap;margin-top:70px;padding-top:30px;border-top:1px solid var(--line);max-width:760px}
+.hero-meta div{font-size:.85rem;color:var(--muted)}
+.hero-meta strong{display:block;font-family:Syne,Inter,system-ui,sans-serif;font-size:1.55rem;color:var(--text);font-weight:700;margin-bottom:2px}
+.status{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;border:1px solid var(--line);border-radius:999px;font-size:.82rem;color:var(--muted);background:rgba(255,255,255,.03)}
+.status i{width:8px;height:8px;border-radius:50%;background:#2dff9a;box-shadow:0 0 0 0 rgba(45,255,154,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(45,255,154,.55)}70%{box-shadow:0 0 0 10px rgba(45,255,154,0)}100%{box-shadow:0 0 0 0 rgba(45,255,154,0)}}
+.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;width:24px;height:40px;border:1.5px solid rgba(255,255,255,.25);border-radius:14px}
+.scroll-hint::after{content:"";position:absolute;left:50%;top:8px;width:3px;height:8px;margin-left:-1.5px;border-radius:2px;background:var(--cyan);animation:wheel 1.8s infinite}
+@keyframes wheel{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(14px)}}
+
+/* marquee */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:22px 0;background:var(--bg2)}
+.track{display:flex;gap:56px;width:max-content;animation:scroll 32s linear infinite}
+.track span{font-family:Syne,Inter,system-ui,sans-serif;font-size:clamp(1.3rem,2.4vw,1.9rem);font-weight:700;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.35);white-space:nowrap;display:flex;align-items:center;gap:56px}
+.track span::after{content:"✦";-webkit-text-stroke:0;color:var(--cyan);font-size:.8em}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:130px 0;position:relative}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:64px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(2.2rem,4.8vw,3.9rem);font-weight:800;margin-top:18px;max-width:16ch}
+.sec-head p{color:var(--muted);max-width:42ch}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:38px;overflow:hidden;transition:border-color .35s,transform .35s}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(0,240,255,.12),transparent 45%);opacity:0;transition:opacity .35s;pointer-events:none}
+.card:hover{border-color:rgba(0,240,255,.3);transform:translateY(-4px)}
+.card:hover::before{opacity:1}
+.svc-icon{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:rgba(0,240,255,.08);border:1px solid rgba(0,240,255,.2);margin-bottom:28px;color:var(--cyan)}
+.svc-icon svg{width:26px;height:26px}
+.card h3{font-size:1.65rem;font-weight:700;margin-bottom:12px}
+.card p{color:var(--muted);margin-bottom:22px}
+.ticks{list-style:none;display:grid;gap:10px}
+.ticks li{display:flex;gap:12px;font-size:.93rem;color:#cfd5e2}
+.ticks li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:rgba(0,240,255,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f0ff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/11px no-repeat}
+.card .num{position:absolute;top:30px;right:34px;font-family:Syne,Inter,system-ui,sans-serif;font-weight:700;font-size:.85rem;color:rgba(255,255,255,.25)}
+
+/* work */
+.work{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.proj{grid-column:span 3;border-radius:var(--r);border:1px solid var(--line);overflow:hidden;background:var(--bg2);display:flex;flex-direction:column;transition:transform .4s,border-color .4s}
+.proj.wide{grid-column:span 4}.proj.narrow{grid-column:span 2}
+.proj:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.22)}
+.thumb{position:relative;aspect-ratio:16/10;display:grid;place-items:center;overflow:hidden}
+.proj.narrow .thumb{aspect-ratio:auto;flex:1;min-height:260px}
+.thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,6,10,.85))}
+.thumb .word{position:relative;z-index:1;font-family:Syne,Inter,system-ui,sans-serif;font-weight:800;font-size:clamp(2.6rem,6vw,5rem);letter-spacing:-.03em;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.proj:hover .word{transform:scale(1.07)}
+.t-volt{background:radial-gradient(circle at 30% 30%,#fff200 0,#ff7a00 30%,#1a0a00 72%)}
+.t-volt .word{color:#0b0b0b;text-shadow:0 0 40px rgba(255,242,0,.5)}
+.t-nexus{background:radial-gradient(circle at 70% 40%,#5d6b84 0,#1b2230 40%,#07090d 75%)}
+.t-nexus .word{background:linear-gradient(180deg,#fff,#8a95a8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.t-vanta{background:conic-gradient(from 200deg at 60% 50%,#0e0e16,#3b1d8f,#00c2d1,#0e0e16)}
+.t-vanta .word{color:rgba(255,255,255,.92);backdrop-filter:blur(2px)}
+.t-signal{background:radial-gradient(circle at 50% 120%,#1b3cff 0,#070b2a 45%,#000 75%)}
+.t-signal .word{color:#fff;letter-spacing:.2em;font-size:clamp(2rem,4.5vw,3.6rem)}
+.t-signal::before{content:"";position:absolute;inset:0;background-image:radial-gradient(1px 1px at 20% 30%,#fff,transparent),radial-gradient(1px 1px at 70% 20%,#fff,transparent),radial-gradient(1.5px 1.5px at 40% 70%,#9cf,transparent),radial-gradient(1px 1px at 85% 60%,#fff,transparent),radial-gradient(1px 1px at 10% 80%,#fff,transparent),radial-gradient(1px 1px at 60% 45%,#fff,transparent)}
+.t-nest{background:linear-gradient(135deg,#2a211a,#6b5139 50%,#c9a77b)}
+.t-nest .word{color:#f6ecdf;font-style:italic}
+.t-kryo{background:linear-gradient(160deg,#e9f6ff 0,#9fd3f0 40%,#1d3b55 100%)}
+.t-kryo .word{color:#08243b}
+.proj-info{padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:1px solid var(--line)}
+.proj-info h3{font-size:1.15rem;font-weight:700}
+.proj-info p{font-size:.85rem;color:var(--muted)}
+.proj-link{flex:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:background .3s,border-color .3s,transform .3s}
+.proj:hover .proj-link{background:var(--text);color:#05060a;border-color:var(--text);transform:rotate(-45deg)}
+.proj-link svg{width:16px;height:16px}
+.tag{font-size:.72rem;padding:5px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.work-foot{margin-top:40px;text-align:center}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.step{padding:34px 28px;border-radius:var(--r);border:1px solid var(--line);background:var(--card);position:relative}
+.step .n{font-family:Syne,Inter,system-ui,sans-serif;font-weight:800;font-size:3.2rem;line-height:1;margin-bottom:26px}
+.step h3{font-size:1.3rem;margin-bottom:10px}
+.step p{color:var(--muted);font-size:.93rem}
+
+/* why */
+.why{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;align-items:center}
+.why h2{font-size:clamp(2.2rem,4.6vw,3.7rem);font-weight:800;margin:18px 0 24px}
+.why p{color:var(--muted);margin-bottom:16px}
+.why-list{display:grid;gap:14px}
+.why-item{display:flex;gap:18px;padding:22px 24px;border:1px solid var(--line);border-radius:18px;background:var(--card)}
+.why-item b{display:block;margin-bottom:4px}
+.why-item span{color:var(--muted);font-size:.92rem}
+.why-item .ic{flex:none;width:40px;height:40px;border-radius:12px;background:rgba(139,92,255,.12);border:1px solid rgba(139,92,255,.3);display:grid;place-items:center;color:#b9a2ff}
+.why-item .ic svg{width:20px;height:20px}
+
+/* pricing cta */
+.pricing{border-radius:32px;border:1px solid var(--line);padding:70px 60px;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(0,240,255,.07),rgba(139,92,255,.08) 50%,rgba(255,61,154,.06));display:grid;grid-template-columns:1.3fr 1fr;gap:50px;align-items:center}
+.pricing h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;margin:16px 0 18px}
+.pricing p{color:var(--muted)}
+.pricing .opts{display:grid;gap:14px}
+.opt{padding:24px;border-radius:18px;background:rgba(5,6,10,.6);border:1px solid var(--line)}
+.opt h4{font-family:Syne,Inter,system-ui,sans-serif;font-size:1.15rem;margin-bottom:6px}
+.opt p{font-size:.9rem;margin-bottom:16px}
+.opt .btn{padding:12px 20px;font-size:.88rem}
+
+/* faq & policies */
+.faq{max-width:860px;margin:0 auto}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:26px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;font-weight:600;font-size:1.08rem}
+summary::-webkit-details-marker{display:none}
+summary .pm{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);position:relative;transition:transform .3s,border-color .3s}
+summary .pm::before,summary .pm::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:var(--text);transform:translate(-50%,-50%)}
+summary .pm::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .3s}
+details[open] summary .pm{border-color:var(--cyan)}
+details[open] summary .pm::after{transform:translate(-50%,-50%) rotate(0)}
+details .ans{padding:0 50px 26px 0;color:var(--muted)}
+details .ans p+p,details .ans ul{margin-top:12px}
+details .ans ul{padding-left:20px;display:grid;gap:6px}
+
+/* contact */
+.contact{text-align:center;padding:150px 0 130px;overflow:hidden}
+.contact .orb.o1{top:auto;bottom:-260px;right:auto;left:50%;margin-left:-260px;opacity:.35}
+.contact h2{font-size:clamp(2.6rem,7vw,6rem);font-weight:800;margin:22px auto 26px;max-width:13ch;position:relative}
+.contact p{color:var(--muted);max-width:52ch;margin:0 auto 40px;position:relative}
+.mail{display:inline-block;font-family:Syne,Inter,system-ui,sans-serif;font-weight:700;font-size:clamp(1.3rem,3.4vw,2.4rem);position:relative;margin-bottom:40px;word-break:break-all}
+.mail::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--grad);transform:scaleX(.3);transform-origin:left;transition:transform .5s}
+.mail:hover::after{transform:scaleX(1)}
+.contact .hero-ctas{justify-content:center;position:relative}
+
+/* policies */
+.policies{padding:100px 0;border-top:1px solid var(--line);background:var(--bg2)}
+.policies h2{font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:800;margin:16px 0 10px}
+.policies .intro{color:var(--muted);margin-bottom:30px}
+.policies .updated{font-size:.82rem;color:var(--muted);margin-top:24px}
+
+footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:.88rem}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot-links{display:flex;gap:26px;flex-wrap:wrap}
+.foot-links a:hover{color:var(--text)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+/* responsive */
+@media (max-width:960px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:grid;place-items:center}
+  .mobile-menu{position:fixed;inset:74px 0 auto 0;background:rgba(5,6,10,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:18px 24px 28px;flex-direction:column;gap:6px;z-index:49}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{padding:14px 0;border-bottom:1px solid var(--line);font-size:1.05rem}
+  .mobile-menu .btn{margin-top:16px;justify-content:center}
+  .services{grid-template-columns:1fr}
+  .work{grid-template-columns:1fr}
+  .proj,.proj.wide,.proj.narrow{grid-column:auto}
+  .proj.narrow .thumb{aspect-ratio:16/10;min-height:0}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .why{grid-template-columns:1fr;gap:40px}
+  .pricing{grid-template-columns:1fr;padding:44px 28px}
+  section{padding:96px 0}
+}
+@media (max-width:560px){
+  .wrap{padding:0 18px}
+  .steps{grid-template-columns:1fr}
+  .card{padding:30px 24px}
+  .hero-meta{gap:26px}
+  .hero-ctas .btn{flex:1;justify-content:center}
+  details .ans{padding-right:0}
+  .logo small{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo" aria-label="Hamza Inayat Web Design — home">
+      <span class="logo-mark">HI</span>
+      <span>Hamza Inayat<small>Web Design</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="#contact" class="btn btn-primary nav-cta">Start a project</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services">Services</a>
+  <a href="#work">Work</a>
+  <a href="#process">Process</a>
+  <a href="#faq">FAQ</a>
+  <a href="#policies">Terms &amp; refunds</a>
+  <a href="#contact" class="btn btn-primary">Start a project</a>
+</div>
+
+<header class="hero" id="top">
+  <div class="grid-bg"></div>
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <div class="wrap hero-in">
+    <span class="status rv"><i></i>Taking new projects — London, UK</span>
+    <h1 class="rv d1">Websites that look <span class="grad-text">expensive.</span> And work hard.</h1>
+    <p class="lead rv d2">I design and build premium, fast, mobile-first websites for small businesses — WordPress sites, Shopify stores, landing pages and fully custom builds. Cinematic design, clean code, and a site you're proud to send people to.</p>
+    <div class="hero-ctas rv d3">
+      <a href="#contact" class="btn btn-primary">Start a project
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#work" class="btn btn-ghost">See my work</a>
+    </div>
+    <div class="hero-meta rv d4">
+      <div><strong>5.0★</strong>Rated on Fiverr</div>
+      <div><strong>Since 2023</strong>Building for clients</div>
+      <div><strong>100%</strong>Mobile responsive</div>
+      <div><strong>UK &amp; worldwide</strong>Remote-friendly</div>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"></div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>WordPress</span><span>Shopify</span><span>Landing Pages</span><span>WooCommerce</span><span>Custom HTML</span><span>AI Chatbots</span><span>Responsive Design</span><span>SEO Basics</span>
+    <span>WordPress</span><span>Shopify</span><span>Landing Pages</span><span>WooCommerce</span><span>Custom HTML</span><span>AI Chatbots</span><span>Responsive Design</span><span>SEO Basics</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow rv">What I do</span>
+        <h2 class="rv d1">Everything your business needs to <span class="grad-text">look the part</span> online.</h2>
+      </div>
+      <p class="rv d2">From a clean five-page business site to a full online store — designed to impress, built to convert, and handed over ready to use.</p>
+    </div>
+    <div class="services">
+      <article class="card rv">
+        <span class="num">01</span>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8M12 18v3"/></svg></div>
+        <h3>WordPress Websites</h3>
+        <p>Professional business websites you can update yourself — perfect for local services, restaurants, clinics, gyms and agencies.</p>
+        <ul class="ticks">
+          <li>Custom design, not a generic template look</li>
+          <li>Contact forms, booking buttons &amp; Google Maps</li>
+          <li>WooCommerce if you want to sell online</li>
+          <li>Basic on-page SEO &amp; speed setup</li>
+        </ul>
+      </article>
+      <article class="card rv d1">
+        <span class="num">02</span>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></div>
+        <h3>Shopify Stores</h3>
+        <p>Online stores set up properly from day one — products, collections, payments and shipping, with a brand look that builds trust.</p>
+        <ul class="ticks">
+          <li>Store setup, theme styling &amp; brand colours</li>
+          <li>Products, collections &amp; key pages</li>
+          <li>Payments, shipping &amp; essential apps</li>
+          <li>Mobile-first layout &amp; email capture</li>
+        </ul>
+      </article>
+      <article class="card rv">
+        <span class="num">03</span>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
+        <h3>Landing Pages</h3>
+        <p>High-impact single pages for launches, campaigns, products and personal brands — built to grab attention and drive one clear action.</p>
+        <ul class="ticks">
+          <li>Scroll animations &amp; cinematic visuals</li>
+          <li>Clear call-to-action structure</li>
+          <li>Lightning-fast single-file builds</li>
+          <li>Hosting &amp; go-live support</li>
+        </ul>
+      </article>
+      <article class="card rv d1">
+        <span class="num">04</span>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13.5 5l-3 14"/></svg></div>
+        <h3>Custom Builds &amp; AI Chatbots</h3>
+        <p>Something more ambitious? Premium custom sites and AI-powered chat assistants that answer customer questions 24/7.</p>
+        <ul class="ticks">
+          <li>Fully custom, hand-built front ends</li>
+          <li>AI chatbot widgets for enquiries &amp; FAQs</li>
+          <li>Interactive effects &amp; 3D showcases</li>
+          <li>Ongoing care &amp; updates available</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="work" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow rv">Selected work</span>
+        <h2 class="rv d1">Recent builds &amp; <span class="grad-text">concepts.</span></h2>
+      </div>
+      <p class="rv d2">A mix of live sites and design concepts — each one built to feel like a premium brand, not a template.</p>
+    </div>
+    <div class="work">
+      <a class="proj wide rv" href="https://hamzahkhanuk-dotcom.github.io/volt/" target="_blank" rel="noopener">
+        <div class="thumb t-volt"><span class="word">VOLT</span></div>
+        <div class="proj-info"><div><h3>VOLT</h3><p>Sneaker landing page · scroll-driven story</p></div>
+          <span class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+      <a class="proj narrow rv d1" href="https://hamzahkhanuk-dotcom.github.io/nexura" target="_blank" rel="noopener">
+        <div class="thumb t-nexus"><span class="word">NEXUS</span></div>
+        <div class="proj-info"><div><h3>NEXUS</h3><p>Robotics brand · video hero</p></div>
+          <span class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></div>
+      </a>
+      <div class="proj rv">
+        <div class="thumb t-vanta"><span class="word">VANTA</span></div>
+        <div class="proj-info"><div><h3>VANTA</h3><p>Future footwear store · 3D product lab</p></div><span class="tag">Concept</span></div>
+      </div>
+      <div class="proj rv d1">
+        <div class="thumb t-signal"><span class="word">SIGNAL</span></div>
+        <div class="proj-info"><div><h3>SIGNAL</h3><p>Cinematic 4-page space experience</p></div><span class="tag">Concept</span></div>
+      </div>
+      <div class="proj narrow rv">
+        <div class="thumb t-nest"><span class="word">TheNest</span></div>
+        <div class="proj-info"><div><h3>TheNest</h3><p>Boutique business site</p></div><span class="tag">Client pitch</span></div>
+      </div>
+      <div class="proj wide rv d1">
+        <div class="thumb t-kryo"><span class="word">KRYÖ</span></div>
+        <div class="proj-info"><div><h3>KRYÖ</h3><p>Arctic outerwear brand landing page</p></div><span class="tag">Concept</span></div>
+      </div>
+    </div>
+    <div class="work-foot rv">
+      <a href="https://www.fiverr.com/hamzainayat397" target="_blank" rel="noopener" class="btn btn-ghost">More work &amp; reviews on Fiverr
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="process" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow rv">How it works</span>
+        <h2 class="rv d1">Simple process. <span class="grad-text">No stress.</span></h2>
+      </div>
+      <p class="rv d2">You'll always know what's happening and what's next — from first message to launch day.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><div class="n grad-text">01</div><h3>Brief</h3><p>Tell me about your business, your goals and sites you like. I'll suggest the right approach and a clear quote.</p></div>
+      <div class="step rv d1"><div class="n grad-text">02</div><h3>Design</h3><p>I create the look and layout around your brand — colours, fonts, imagery and the story your site tells.</p></div>
+      <div class="step rv d2"><div class="n grad-text">03</div><h3>Build</h3><p>Your site is built, tested on mobile and desktop, and refined with your feedback through agreed revisions.</p></div>
+      <div class="step rv d3"><div class="n grad-text">04</div><h3>Launch</h3><p>We go live. You get your files, logins and a quick walkthrough so you can run it with confidence.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:40px">
+  <div class="wrap why">
+    <div>
+      <span class="eyebrow rv">Why work with me</span>
+      <h2 class="rv d1">Premium look. <span class="grad-text">Small-business</span> friendly.</h2>
+      <p class="rv d2">Most small businesses end up with a site that looks like everyone else's. I build sites with the visual quality of big brands — bold typography, smooth motion and a cinematic feel — while keeping things simple, fast and easy to manage.</p>
+      <p class="rv d3">You work directly with me from start to finish. No agency layers, no jargon.</p>
+    </div>
+    <div class="why-list">
+      <div class="why-item rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7L12 3z"/></svg></span><div><b>Design that stands out</b><span>Custom visuals built around your brand — never a copy-paste template.</span></div></div>
+      <div class="why-item rv d1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span><div><b>Mobile-first, always</b><span>Most of your visitors are on their phone. Every build is tested there first.</span></div></div>
+      <div class="why-item rv d2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></span><div><b>Clear revisions</b><span>Agreed revision rounds so you get exactly what you want — no surprises.</span></div></div>
+      <div class="why-item rv d3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.2L4 17.2V4z"/><path d="M8 9h8M8 12h5"/></svg></span><div><b>Fast, friendly communication</b><span>Quick replies and regular updates throughout your project.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" style="padding-top:40px">
+  <div class="wrap">
+    <div class="pricing rv">
+      <div>
+        <span class="eyebrow">Packages &amp; pricing</span>
+        <h2>Ready-made packages, or a <span class="grad-text">custom quote.</span></h2>
+        <p>My WordPress, Shopify and landing page packages — with what's included in each — are listed on my Fiverr profile. For bigger or bespoke projects, email me for a tailored quote.</p>
+      </div>
+      <div class="opts">
+        <div class="opt">
+          <h4>Order a package</h4>
+          <p>See packages, delivery times and client reviews.</p>
+          <a href="https://www.fiverr.com/hamzainayat397" target="_blank" rel="noopener" class="btn btn-primary">View on Fiverr
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </div>
+        <div class="opt">
+          <h4>Custom project</h4>
+          <p>Direct projects are paid securely online by card or PayPal.</p>
+          <a href="mailto:hamzahkhanuk@gmail.com?subject=New%20website%20project" class="btn btn-ghost">Get a quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head" style="justify-content:center;text-align:center">
+      <div>
+        <span class="eyebrow rv">FAQ</span>
+        <h2 class="rv d1" style="margin-left:auto;margin-right:auto">Good questions.</h2>
+      </div>
+    </div>
+    <div class="faq">
+      <details class="rv"><summary>How long does a website take?<span class="pm"></span></summary>
+        <div class="ans"><p>Most landing pages take a few days, and a standard business website usually takes around one to two weeks depending on the number of pages and how quickly content is ready. You'll get a clear timeline before we start.</p></div></details>
+      <details class="rv"><summary>What do you need from me to get started?<span class="pm"></span></summary>
+        <div class="ans"><p>Your business name, logo (if you have one), the pages you need, your text and photos (or I can use placeholders and suggest copy), and a few websites you like the look of.</p></div></details>
+      <details class="rv"><summary>Can I update the website myself afterwards?<span class="pm"></span></summary>
+        <div class="ans"><p>Yes. WordPress and Shopify sites are easy to edit, and I'll show you how. For custom-built sites I can make updates for you, or hand over the files.</p></div></details>
+      <details class="rv"><summary>Do you handle hosting and domains?<span class="pm"></span></summary>
+        <div class="ans"><p>I'll help you choose and set up hosting and connect your domain. Hosting and domain fees are paid directly to the provider and belong to you.</p></div></details>
+      <details class="rv"><summary>How do payments work?<span class="pm"></span></summary>
+        <div class="ans"><p>Package orders are placed and paid through Fiverr. For direct custom projects, payment is made securely online by card (processed by Stripe) or PayPal — usually a deposit to start and the balance before final handover. See the terms below for details.</p></div></details>
+      <details class="rv"><summary>Do you work with clients outside the UK?<span class="pm"></span></summary>
+        <div class="ans"><p>Absolutely. I'm based in London and work with clients in the UK and worldwide — everything is handled online.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="orb o1"></div>
+  <div class="wrap">
+    <span class="eyebrow rv">Let's talk</span>
+    <h2 class="rv d1">Got a project? <span class="grad-text">Let's build it.</span></h2>
+    <p class="rv d2">Tell me what you have in mind — your business, what you need and when you need it. I usually reply within 24 hours.</p>
+    <a class="mail rv d3" href="mailto:hamzahkhanuk@gmail.com?subject=New%20website%20project">hamzahkhanuk@gmail.com</a>
+    <div class="hero-ctas rv d4">
+      <a href="mailto:hamzahkhanuk@gmail.com?subject=New%20website%20project" class="btn btn-primary">Email me
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+      <a href="https://www.fiverr.com/hamzainayat397" target="_blank" rel="noopener" class="btn btn-ghost">Hire me on Fiverr</a>
+    </div>
+  </div>
+</section>
+
+<section class="policies" id="policies">
+  <div class="wrap faq">
+    <span class="eyebrow">Legal</span>
+    <h2>Terms, refunds &amp; privacy</h2>
+    <p class="intro">These terms apply to projects agreed and paid for directly with Hamza Inayat Web Design. Orders placed through Fiverr are covered by Fiverr's own terms and refund policy.</p>
+
+    <details id="terms"><summary>Terms of service<span class="pm"></span></summary>
+      <div class="ans">
+        <p>Hamza Inayat Web Design ("I", "me") is a sole-trader web design service based in London, United Kingdom, providing website design and development services to businesses and individuals ("you", "the client").</p>
+        <ul>
+          <li><b>Quotes &amp; scope.</b> Before work starts, I'll confirm in writing (by email) what's included — pages, features, number of revision rounds, timeline and price. Work outside the agreed scope is quoted separately.</li>
+          <li><b>Payment.</b> Custom projects normally require a deposit (typically 50%) before work begins, with the balance due before final files or site access are handed over. Payments are taken securely online by card (processed by Stripe) or PayPal. Prices are in GBP unless agreed otherwise.</li>
+          <li><b>Your content.</b> You're responsible for making sure any text, images, logos and other materials you supply are yours to use. Delays in providing content may extend the timeline.</li>
+          <li><b>Revisions.</b> The agreed number of revision rounds is included. Additional changes after sign-off can be made at an agreed extra cost.</li>
+          <li><b>Ownership.</b> Once paid in full, you own the final website design and content created for you. Third-party themes, plugins, fonts and stock assets remain subject to their own licences. I may show the finished work in my portfolio unless you ask me not to.</li>
+          <li><b>Third-party services.</b> Hosting, domains, Shopify plans, premium plugins and similar services are provided by third parties and billed to you directly. I'm not responsible for their outages, price changes or policies.</li>
+          <li><b>Liability.</b> I take care to deliver high-quality, working websites, but I can't guarantee specific business results such as sales or search rankings. My total liability for any project is limited to the amount you paid for that project.</li>
+          <li><b>Governing law.</b> These terms are governed by the laws of England and Wales.</li>
+        </ul>
+      </div></details>
+
+    <details id="refunds"><summary>Refund &amp; cancellation policy<span class="pm"></span></summary>
+      <div class="ans">
+        <ul>
+          <li><b>Before work starts:</b> if you cancel before any design or development work has begun, you'll receive a full refund of your deposit.</li>
+          <li><b>During the project:</b> if you cancel after work has started, the refund will be the amount paid minus the value of work already completed, which I'll explain clearly. Any completed work can be handed over.</li>
+          <li><b>After delivery:</b> once the final website has been delivered and approved, or you've been given the final files or access, payments are non-refundable.</li>
+          <li><b>If I can't complete your project:</b> in the unlikely event I can't deliver what was agreed, you'll receive a full refund for any undelivered work.</li>
+          <li><b>How to request:</b> email <a href="mailto:hamzahkhanuk@gmail.com" style="color:var(--cyan)">hamzahkhanuk@gmail.com</a> with your name and project details. Approved refunds are returned to the original payment method, normally within 5–10 business days.</li>
+        </ul>
+        <p>Nothing in this policy affects your statutory rights under UK consumer law.</p>
+      </div></details>
+
+    <details id="privacy"><summary>Privacy<span class="pm"></span></summary>
+      <div class="ans">
+        <p>This website doesn't use tracking cookies or collect personal data by itself. If you email me, I'll use your name, email address and project details only to reply to you and to deliver your project. I don't sell or share your information with anyone, except with payment providers (Stripe or PayPal) to process payments. You can ask me to delete your information at any time by emailing <a href="mailto:hamzahkhanuk@gmail.com" style="color:var(--cyan)">hamzahkhanuk@gmail.com</a>.</p>
+      </div></details>
+
+    <p class="updated">Last updated: September 2026 · Contact: hamzahkhanuk@gmail.com · London, United Kingdom</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="yr">2026</span> Hamza Inayat Web Design · London, UK</span>
+    <div class="foot-links">
+      <a href="#services">Services</a>
+      <a href="#terms">Terms</a>
+      <a href="#refunds">Refunds</a>
+      <a href="#privacy">Privacy</a>
+      <a href="https://www.fiverr.com/hamzainayat397" target="_blank" rel="noopener">Fiverr</a>
+      <a href="mailto:hamzahkhanuk@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  function onScroll(){nav.classList.toggle('scrolled',window.scrollY>20)}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var burger=document.getElementById('burger'),menu=document.getElementById('mobileMenu');
+  burger.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');burger.setAttribute('aria-expanded',open);
+  });
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');burger.setAttribute('aria-expanded','false')})});
+
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('in')})}
+
+  document.querySelectorAll('.card').forEach(function(c){
+    c.addEventListener('pointermove',function(e){
+      var r=c.getBoundingClientRect();
+      c.style.setProperty('--mx',(e.clientX-r.left)+'px');
+      c.style.setProperty('--my',(e.clientY-r.top)+'px');
+    });
+  });
+
+  // open policy sections when linked directly
+  function openHash(){
+    var h=location.hash&&document.querySelector(location.hash);
+    if(h&&h.tagName==='DETAILS'){h.open=true}
+  }
+  window.addEventListener('hashchange',openHash);openHash();
+  document.querySelectorAll('a[href="#terms"],a[href="#refunds"],a[href="#privacy"]').forEach(function(a){
+    a.addEventListener('click',function(){var d=document.querySelector(a.getAttribute('href'));if(d)d.open=true});
+  });
+
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

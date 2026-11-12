@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ember & Oak — Modern British Restaurant, Shoreditch</title>
+<meta name="description" content="Ember & Oak — fire-cooked, seasonal modern British dining in Shoreditch. Book a table online.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#14110e;--bg2:#1c1814;--ink:#efe6d6;--mute:#b9ad98;--dim:#8a8070;--gold:#c9a15f;--line:#efe6d61f}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.serif{font-family:'Cormorant Garamond',Georgia,serif}
+.wrap{max-width:1240px;margin:0 auto;padding:0 48px}
+.k{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:14px}
+.k:before{content:"";width:36px;height:1px;background:var(--gold)}
+h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,5vw,64px);line-height:1;margin-top:18px}
+h2 em{color:var(--gold)}
+.btn{display:inline-block;padding:16px 28px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;transition:.25s}
+.btn.p{background:var(--gold);color:var(--bg)}.btn.p:hover{background:#dbb676}
+.btn.s{border:1px solid #efe6d655}.btn.s:hover{border-color:var(--gold);color:var(--gold)}
+section{padding:120px 0}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:20;transition:.3s}
+nav.solid{background:#14110ef2;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{max-width:none;height:84px;display:flex;align-items:center;padding:0 56px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600}.logo em{color:var(--gold)}
+.links{margin-left:auto;display:flex;gap:34px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#d8ccb4}
+.links a:hover{color:var(--gold)}
+nav .btn{margin-left:38px;padding:12px 22px;border:1px solid var(--gold);color:#e9d3a8}
+.burger{display:none;margin-left:auto;width:28px;height:16px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);background:none;cursor:pointer}
+
+/* hero */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding:0}
+.hero .l{padding:180px 56px 60px;display:flex;flex-direction:column}
+.hero h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(56px,6.4vw,92px);line-height:.98;margin-top:26px}
+.hero h1 em{color:var(--gold)}
+.hero p{font-size:18px;line-height:1.65;color:var(--mute);margin-top:26px;max-width:470px}
+.hero .b{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}
+.hero .f{margin-top:auto;padding-top:50px;display:flex;gap:40px;font-size:14px;color:var(--dim);flex-wrap:wrap}.hero .f b{color:var(--ink);font-weight:500}
+.hero .r{position:relative;min-height:520px}
+.hero .r:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg),transparent 30%),linear-gradient(180deg,#14110e99,transparent 25%)}
+.card{position:absolute;right:48px;bottom:48px;z-index:2;background:#14110ee6;border:1px solid #c9a15f55;padding:22px 26px;width:290px}
+.card small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.card div{font-family:'Cormorant Garamond',serif;font-size:28px;margin-top:6px}.card span{color:var(--mute);font-size:14px}
+
+/* strip */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;overflow:hidden;white-space:nowrap}
+.strip div{display:inline-block;animation:mq 30s linear infinite;font-family:'Cormorant Garamond',serif;font-size:30px;font-style:italic;color:var(--mute)}
+.strip span{margin:0 34px;color:var(--gold);font-style:normal}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* story */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.story .pics{position:relative;height:620px}
+.story .pics .a{position:absolute;left:0;top:0;width:78%;height:82%}
+.story .pics .b2{position:absolute;right:0;bottom:0;width:48%;height:46%;border:10px solid var(--bg)}
+.story p{color:var(--mute);font-size:17px;line-height:1.75;margin-top:26px}
+.sig{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;color:var(--ink);margin-top:28px}
+.stats{display:flex;gap:46px;margin-top:40px;padding-top:30px;border-top:1px solid var(--line)}
+.stats b{display:block;font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:500;color:var(--gold);line-height:1}
+.stats span{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+
+/* menu */
+.menu{background:var(--bg2)}
+.mhead{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.mhead p{color:var(--mute);max-width:380px;line-height:1.7}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;margin-top:64px}
+.cols h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;padding-bottom:16px;border-bottom:1px solid var(--gold)}
+.it{padding:22px 0;border-bottom:1px solid var(--line)}
+.it .t{display:flex;justify-content:space-between;gap:16px;font-weight:500;font-size:17px}
+.it .t span{color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:22px}
+.it p{color:var(--dim);font-size:14px;line-height:1.55;margin-top:6px}
+.tags{display:flex;gap:10px;margin-top:44px;flex-wrap:wrap;font-size:13px;color:var(--mute)}
+.tags span{border:1px solid var(--line);padding:9px 16px;border-radius:30px}
+
+/* experiences */
+.exp{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:60px}
+.ex{background:var(--bg2);border:1px solid var(--line);display:flex;flex-direction:column}
+.ex .im{height:240px}
+.ex .c{padding:30px}
+.ex h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px}
+.ex p{color:var(--mute);font-size:15px;line-height:1.65;margin-top:10px}
+.ex .pr{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--dim)}
+.ex .pr b{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--gold);font-weight:500}
+.ex.hl{border-color:var(--gold)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 280px;gap:14px;margin-top:60px}
+.gal div:first-child{grid-row:span 2}
+.gal div{overflow:hidden}.gal img{transition:transform .6s}.gal div:hover img{transform:scale(1.05)}
+
+/* reviews */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:60px}
+.rv{border-top:1px solid var(--gold);padding-top:28px}
+.rv .st{color:var(--gold);letter-spacing:.2em}
+.rv q{display:block;font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1.3;margin-top:16px;quotes:none}
+.rv span{display:block;margin-top:20px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+
+/* booking */
+.book{background:var(--bg2)}
+.bk{display:grid;grid-template-columns:1fr 1.1fr;gap:80px}
+.info{margin-top:36px;display:grid;gap:26px}
+.info div{padding-bottom:22px;border-bottom:1px solid var(--line)}
+.info small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.info p{margin-top:8px;color:var(--mute);line-height:1.7}
+form{background:var(--bg);border:1px solid var(--line);padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+form h3{grid-column:1/-1;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34px;margin-bottom:6px}
+label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);display:grid;gap:8px}
+label.w{grid-column:1/-1}
+input,select,textarea{background:transparent;border:1px solid #efe6d633;color:var(--ink);padding:14px;font:inherit;font-size:15px;letter-spacing:0;text-transform:none}
+select option{background:var(--bg)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
+form .btn{grid-column:1/-1;border:0;cursor:pointer;margin-top:8px;padding:18px}
+.ok{grid-column:1/-1;display:none;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:24px}
+
+footer{padding:80px 0 40px}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.ft p,.ft li{color:var(--dim);font-size:14px;line-height:1.9;list-style:none}
+.ft h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+.cr{margin-top:60px;padding-top:26px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:13px;color:var(--dim);flex-wrap:wrap;gap:10px}
+.cr a{color:var(--mute);text-decoration:underline;text-underline-offset:3px}
+
+@media(max-width:900px){
+ .wrap{padding:0 22px}nav .wrap{padding:0 22px;height:70px}
+ .links,nav .btn{display:none}.burger{display:block}
+ .links.open{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:var(--bg);padding:26px 22px;gap:22px;border-bottom:1px solid var(--line)}
+ .hero{grid-template-columns:1fr}.hero .l{padding:120px 22px 40px}.hero .r{min-height:380px}
+ .hero .r:after{background:linear-gradient(180deg,var(--bg),transparent 30%)}
+ .card{left:22px;right:22px;bottom:22px;width:auto}
+ section{padding:80px 0}
+ .story,.bk{grid-template-columns:1fr;gap:50px}.story .pics{height:420px}
+ .cols,.exp,.revs{grid-template-columns:1fr;gap:34px}
+ .gal{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px}.gal div:first-child{grid-column:span 2;grid-row:auto}
+ form{grid-template-columns:1fr;padding:26px}
+ .ft{grid-template-columns:1fr 1fr}.stats{gap:26px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav"><div class="wrap">
+ <a href="#" class="logo">Ember <em>&amp;</em> Oak</a>
+ <div class="links" id="links"><a href="#story">Our story</a><a href="#menu">Menu</a><a href="#dining">Private dining</a><a href="#visit">Visit</a></div>
+ <a href="#book" class="btn">Book a table</a>
+ <button class="burger" aria-label="Menu" onclick="document.getElementById('links').classList.toggle('open')"></button>
+</div></nav>
+
+<header class="hero">
+ <div class="l">
+  <div class="k">Modern British · Shoreditch</div>
+  <h1>Fire-cooked,<br>seasonal,<br><em>unhurried.</em></h1>
+  <p>Small plates and wood-fired mains, made with produce from farms we know by name. Come hungry, stay late.</p>
+  <div class="b"><a href="#book" class="btn p">Book a table</a><a href="#menu" class="btn s">View menu</a></div>
+  <div class="f"><span><b>★ 4.9</b> · Google reviews</span><span><b>Tue–Sun</b> · 12pm – 11pm</span></div>
+ </div>
+ <div class="r">
+  <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80" alt="Plated dish on a candlelit table">
+  <div class="card"><small>Tonight's special</small><div>Wood-roasted sea bass</div><span>Brown butter, samphire · £29</span></div>
+ </div>
+</header>
+
+<div class="strip"><div>Wood-fired <span>✦</span> Seasonal <span>✦</span> Natural wine <span>✦</span> Sunday roasts <span>✦</span> Private dining <span>✦</span> Wood-fired <span>✦</span> Seasonal <span>✦</span> Natural wine <span>✦</span> Sunday roasts <span>✦</span> Private dining <span>✦</span></div></div>
+
+<section id="story"><div class="wrap story">
+ <div class="pics">
+  <div class="a"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80" alt="Restaurant dining room"></div>
+  <div class="b2"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80" alt="Seasonal plates"></div>
+ </div>
+ <div>
+  <div class="k">Our story</div>
+  <h2>A kitchen built<br>around <em>one fire.</em></h2>
+  <p>Ember &amp; Oak started with a simple idea: cook everything over real wood, buy from people we trust, and change the menu whenever the seasons do.</p>
+  <p>Our chefs work with small farms in Kent and Essex, our fish comes in from Cornwall every morning, and our wine list is short, natural and chosen by people who actually drink it.</p>
+  <div class="sig">— The Ember &amp; Oak kitchen</div>
+  <div class="stats"><div><b>2019</b><span>Opened</span></div><div><b>14</b><span>Local suppliers</span></div><div><b>60</b><span>Covers</span></div></div>
+ </div>
+</div></section>
+
+<section class="menu" id="menu"><div class="wrap">
+ <div class="mhead">
+  <div><div class="k">The menu</div><h2>Made for <em>sharing.</em></h2></div>
+  <p>Our menu changes with the seasons. Here's a taste of what's cooking this month.</p>
+ </div>
+ <div class="cols">
+  <div><h3>To start</h3>
+   <div class="it"><div class="t">Sourdough &amp; cultured butter<span>£6</span></div><p>Baked in-house every morning</p></div>
+   <div class="it"><div class="t">Burrata, blood orange<span>£12</span></div><p>Fennel, chilli oil, toasted seeds</p></div>
+   <div class="it"><div class="t">Charred leeks<span>£10</span></div><p>Romesco, hazelnuts, aged Comté</p></div>
+   <div class="it"><div class="t">Cornish crab toast<span>£14</span></div><p>Brown crab mayo, pickled cucumber</p></div>
+  </div>
+  <div><h3>From the fire</h3>
+   <div class="it"><div class="t">Dry-aged ribeye, 300g<span>£34</span></div><p>Bone marrow butter, watercress</p></div>
+   <div class="it"><div class="t">Wood-roasted sea bass<span>£29</span></div><p>Brown butter, samphire, capers</p></div>
+   <div class="it"><div class="t">Lamb rump<span>£27</span></div><p>Smoked aubergine, salsa verde</p></div>
+   <div class="it"><div class="t">Roast celeriac (v)<span>£19</span></div><p>Mushroom ragu, crispy sage</p></div>
+  </div>
+  <div><h3>To finish</h3>
+   <div class="it"><div class="t">Burnt Basque cheesecake<span>£9</span></div><p>Poached rhubarb</p></div>
+   <div class="it"><div class="t">Dark chocolate mousse<span>£9</span></div><p>Olive oil, sea salt, sourdough crumb</p></div>
+   <div class="it"><div class="t">British cheeses<span>£13</span></div><p>Three cheeses, chutney, crackers</p></div>
+   <div class="it"><div class="t">Affogato<span>£7</span></div><p>Vanilla gelato, espresso</p></div>
+  </div>
+ </div>
+ <div class="tags"><span>Vegetarian options</span><span>Vegan on request</span><span>Gluten-free friendly</span><span>Sunday roast from 12pm</span></div>
+</div></section>
+
+<section id="dining"><div class="wrap">
+ <div class="k">Experiences</div>
+ <h2>More than <em>dinner.</em></h2>
+ <div class="exp">
+  <div class="ex"><div class="im"><img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=900&q=80" alt="Dining room"></div><div class="c"><h3>Chef's tasting menu</h3><p>Seven courses picked by the kitchen on the day. Thursday to Saturday evenings.</p><div class="pr">Per person<b>£65</b></div></div></div>
+  <div class="ex hl"><div class="im"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=900&q=80" alt="Private dining"></div><div class="c"><h3>Private dining</h3><p>Our private room seats up to 18 guests. Perfect for birthdays, team dinners and celebrations.</p><div class="pr">From<b>£45 pp</b></div></div></div>
+  <div class="ex"><div class="im"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=80" alt="Sunday roast"></div><div class="c"><h3>Sunday roast</h3><p>Wood-fired beef, crispy potatoes and all the trimmings, every Sunday from midday.</p><div class="pr">Per person<b>£26</b></div></div></div>
+ </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+ <div class="k">Gallery</div>
+ <h2>Inside <em>Ember &amp; Oak.</em></h2>
+ <div class="gal">
+  <div><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80" alt=""></div>
+  <div><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt=""></div>
+  <div><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80" alt=""></div>
+  <div><img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80" alt=""></div>
+  <div><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" alt=""></div>
+ </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+ <div class="k">Kind words</div>
+ <h2>What our <em>guests say.</em></h2>
+ <div class="revs">
+  <div class="rv"><div class="st">★★★★★</div><q>The ribeye was the best I've had in London. Warm service and a brilliant wine list.</q><span>Sample review</span></div>
+  <div class="rv"><div class="st">★★★★★</div><q>Booked the private room for my mum's 60th. They made the whole night feel special.</q><span>Sample review</span></div>
+  <div class="rv"><div class="st">★★★★★</div><q>Cosy, candlelit and not stuffy at all. The cheesecake alone is worth the trip.</q><span>Sample review</span></div>
+ </div>
+</div></section>
+
+<section class="book" id="book"><div class="wrap bk">
+ <div id="visit">
+  <div class="k">Visit us</div>
+  <h2>Book your <em>table.</em></h2>
+  <div class="info">
+   <div><small>Address</small><p>12 Redchurch Lane, Shoreditch<br>London E2 7XX</p></div>
+   <div><small>Opening hours</small><p>Tue – Thu · 12pm – 10pm<br>Fri – Sat · 12pm – 11pm<br>Sunday · 12pm – 6pm · Closed Mondays</p></div>
+   <div><small>Get in touch</small><p>020 7946 0321<br>hello@emberandoak.co.uk</p></div>
+  </div>
+ </div>
+ <form onsubmit="event.preventDefault();this.querySelector('.ok').style.display='block';this.reset()">
+  <h3>Reserve online</h3>
+  <label>Name<input required placeholder="Your name"></label>
+  <label>Phone<input required placeholder="07..."></label>
+  <label>Date<input type="date" required></label>
+  <label>Time<select><option>12:30</option><option>13:30</option><option>18:00</option><option selected>19:30</option><option>21:00</option></select></label>
+  <label class="w">Guests<select><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5 guests</option><option>6+ guests</option></select></label>
+  <label class="w">Anything we should know?<textarea rows="3" placeholder="Allergies, celebrations..."></textarea></label>
+  <button class="btn p">Request booking</button>
+  <div class="ok">Thank you — we'll confirm your table by text shortly.</div>
+ </form>
+</div></section>
+
+<footer><div class="wrap">
+ <div class="ft">
+  <div><a href="#" class="logo">Ember <em>&amp;</em> Oak</a><p style="margin-top:14px;max-width:300px">Fire-cooked, seasonal modern British food in the heart of Shoreditch.</p></div>
+  <div><h4>Explore</h4><ul><li>Our story</li><li>Menu</li><li>Private dining</li><li>Gift cards</li></ul></div>
+  <div><h4>Visit</h4><ul><li>12 Redchurch Lane</li><li>London E2 7XX</li><li>020 7946 0321</li></ul></div>
+  <div><h4>Follow</h4><ul><li>Instagram</li><li>TikTok</li><li>Google</li></ul></div>
+ </div>
+ <div class="cr"><span>© 2026 Ember &amp; Oak · Concept website — demo business</span><span>Designed by <a href="https://hamzahkhanuk-dotcom.github.io/hamza-inayat-web-design/">Hamza Inayat Web Design</a></span></div>
+</div></footer>
+
+<script>
+var n=document.getElementById('nav');addEventListener('scroll',function(){n.classList.toggle('solid',scrollY>40)});
+</script>
+</body>
+</html>

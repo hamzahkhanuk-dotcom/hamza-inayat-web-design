@@ -44,7 +44,7 @@ nav .btn{margin-left:38px;padding:12px 22px;border:1px solid var(--gold);color:#
 .hero .f{margin-top:auto;padding-top:50px;display:flex;gap:40px;font-size:14px;color:var(--dim);flex-wrap:wrap}.hero .f b{color:var(--ink);font-weight:500}
 .hero .r{position:relative;min-height:520px}
 .hero .r:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg),transparent 30%),linear-gradient(180deg,#14110e99,transparent 25%)}
-.card{position:absolute;right:48px;bottom:48px;z-index:2;background:#14110ee6;border:1px solid #c9a15f55;padding:22px 26px;width:290px}
+.card{position:absolute;right:48px;bottom:48px;z-index:2;background:#14110ee6;border:1px solid #c9a15f55;padding:22px 26px;width:330px;backdrop-filter:blur(6px)}
 .card small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
 .card div{font-family:'Cormorant Garamond',serif;font-size:28px;margin-top:6px}.card span{color:var(--mute);font-size:14px}
 
@@ -92,7 +92,7 @@ nav .btn{margin-left:38px;padding:12px 22px;border:1px solid var(--gold);color:#
 /* gallery */
 .gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 280px;gap:14px;margin-top:60px}
 .gal div:first-child{grid-row:span 2}
-.gal div{overflow:hidden}.gal img{transition:transform .6s}.gal div:hover img{transform:scale(1.05)}
+.gal div{overflow:hidden}.gal img,.ex .im img,.story img{filter:saturate(.92) brightness(.92)}.gal img{transition:transform .6s}.gal div:hover img{transform:scale(1.05)}
 
 /* reviews */
 .revs{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:60px}
@@ -168,8 +168,8 @@ footer{padding:80px 0 40px}
 
 <section id="story"><div class="wrap story">
  <div class="pics">
-  <div class="a"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80" alt="Restaurant dining room"></div>
-  <div class="b2"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80" alt="Seasonal plates"></div>
+  <div class="a"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1200&q=80" alt="Candlelit bar and dining room"></div>
+  <div class="b2"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=800&q=80" alt="Chef preparing seasonal produce"></div>
  </div>
  <div>
   <div class="k">Our story</div>
@@ -213,9 +213,9 @@ footer{padding:80px 0 40px}
  <div class="k">Experiences</div>
  <h2>More than <em>dinner.</em></h2>
  <div class="exp">
-  <div class="ex"><div class="im"><img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=900&q=80" alt="Dining room"></div><div class="c"><h3>Chef's tasting menu</h3><p>Seven courses picked by the kitchen on the day. Thursday to Saturday evenings.</p><div class="pr">Per person<b>£65</b></div></div></div>
-  <div class="ex hl"><div class="im"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=900&q=80" alt="Private dining"></div><div class="c"><h3>Private dining</h3><p>Our private room seats up to 18 guests. Perfect for birthdays, team dinners and celebrations.</p><div class="pr">From<b>£45 pp</b></div></div></div>
-  <div class="ex"><div class="im"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=80" alt="Sunday roast"></div><div class="c"><h3>Sunday roast</h3><p>Wood-fired beef, crispy potatoes and all the trimmings, every Sunday from midday.</p><div class="pr">Per person<b>£26</b></div></div></div>
+  <div class="ex"><div class="im"><img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=900&q=80" alt="Dry-aged steak"></div><div class="c"><h3>Chef's tasting menu</h3><p>Seven courses picked by the kitchen on the day. Thursday to Saturday evenings.</p><div class="pr">Per person<b>£65</b></div></div></div>
+  <div class="ex hl"><div class="im"><img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=900&q=80" alt="Friends sharing dinner"></div><div class="c"><h3>Private dining</h3><p>Our private room seats up to 18 guests. Perfect for birthdays, team dinners and celebrations.</p><div class="pr">From<b>£45 pp</b></div></div></div>
+  <div class="ex"><div class="im"><img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=900&q=80" alt="Cocktail at the bar"></div><div class="c"><h3>Wine &amp; cocktail bar</h3><p>Natural wines and seasonal cocktails at our candlelit bar. No booking needed for drinks.</p><div class="pr">Wine flight<b>£28</b></div></div></div>
  </div>
 </div></section>
 
@@ -223,11 +223,11 @@ footer{padding:80px 0 40px}
  <div class="k">Gallery</div>
  <h2>Inside <em>Ember &amp; Oak.</em></h2>
  <div class="gal">
-  <div><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80" alt=""></div>
-  <div><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt=""></div>
-  <div><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80" alt=""></div>
-  <div><img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80" alt=""></div>
-  <div><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" alt=""></div>
+  <div><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80" alt="Dining room"></div>
+  <div><img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80" alt="Cocktail"></div>
+  <div><img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800&q=80" alt="Steak"></div>
+  <div><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=800&q=80" alt="Chef at work"></div>
+  <div><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Plated dish"></div>
  </div>
 </div></section>
 

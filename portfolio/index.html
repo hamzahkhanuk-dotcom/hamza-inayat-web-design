@@ -116,7 +116,7 @@ atlas.anisotropy=8;atlas.generateMipmaps=true;atlas.minFilter=THREE.LinearMipmap
 
 const U={uOffset:{value:new THREE.Vector2()},uLens:{value:new THREE.Vector2()},uRes:{value:new THREE.Vector2(W,H)},
  uTile:{value:new THREE.Vector2(22,33)},uCell:{value:new THREE.Vector2(28,40)},uField:{value:new THREE.Vector2()},
- uTime:{value:0},uA:{value:2.5},uR:{value:78},uAtlas:{value:atlas},uFilter:{value:-1},uSel:{value:-1},uIntro:{value:0},uVel:{value:new THREE.Vector2()}};
+ uTime:{value:0},uA:{value:3.6},uR:{value:46},uAtlas:{value:atlas},uFilter:{value:-1},uSel:{value:-1},uIntro:{value:0},uVel:{value:new THREE.Vector2()}};
 const VS=`
 attribute vec2 aGrid;attribute float aTex;attribute float aType;attribute float aId;
 uniform vec2 uOffset,uLens,uRes,uTile,uCell,uField,uVel;uniform float uTime,uA,uR,uFilter,uSel,uIntro;
@@ -129,11 +129,12 @@ void main(){
  vec2 n=c/(uRes*0.5);float r2=dot(n,n);
  float b=1.0-0.085*r2;c*=b;
  vec2 d=c-uLens;float r=length(d);
- float g=exp(-(r*r)/(uR*uR));
- float s=1.0+uA*g;
+ vec2 de=d/vec2(1.3,1.0);float rn=length(de)/uR;float L=1.0/(1.0+rn*rn);
+ float g=L*L;
+ float s=1.0+uA*L;
  vec2 p=uLens+d*s;
  float intro=smoothstep(0.0,1.0,uIntro*1.6-length(n)*0.5);
- float radial=max(0.18,1.0+uA*g*(1.0-2.0*r*r/(uR*uR)));
+ float radial=max(0.35,1.0+uA*(1.0-rn*rn)*L*L);
  float k=b*mix(0.2,1.0,intro)*(aId==uSel?1.08:1.0);
  vec2 q=position.xy*uTile*k;
  vec2 u=r>0.001?d/r:vec2(1.0,0.0);
@@ -154,7 +155,7 @@ void main(){
  float col=mod(vTex,5.0),row=floor(vTex/5.0);
  vec2 uv=vec2((col+vUv.x)/5.0,1.0-(row+1.0)/2.0+vUv.y/2.0);
  vec3 c=texture2D(uAtlas,uv).rgb;
- float lit=mix(0.42,1.0,smoothstep(0.0,0.55,vG));
+ float lit=mix(0.38,1.0,smoothstep(0.02,0.5,vG));
  lit*=1.0-0.45*clamp(vEdge*0.6,0.0,1.0);
  gl_FragColor=vec4(c*lit*vDim,1.0);
 }`;
@@ -187,7 +188,7 @@ function size(){
  W=innerWidth;H=innerHeight;R.setSize(W,H,false);
  cam.left=-W/2;cam.right=W/2;cam.top=H/2;cam.bottom=-H/2;cam.updateProjectionMatrix();
  U.uRes.value.set(W,H);
- const sm=W<700;U.uTile.value.set(sm?18:22,sm?27:33);U.uCell.value.set(sm?23:28,sm?33:40);U.uR.value=sm?58:78;
+ const sm=W<700;U.uTile.value.set(sm?20:24,sm?30:36);U.uCell.value.set(sm?23:27,sm?34:40);U.uR.value=sm?34:46;
  build();
 }
 addEventListener('resize',size);size();
@@ -253,12 +254,13 @@ function loop(){
  if(document.getElementById('intro').classList.contains('gone')){if(start===null)start=t;U.uIntro.value=Math.min(1.5,(t-start)*.6);}
  if(!down){off.x+=vx;off.y+=vy;vx*=.95;vy*=.95;if(Math.abs(vx)<.25&&!hasMouse)vx=-.25;}
  U.uVel.value.x+=((down?vx:vx)*.02-U.uVel.value.x)*.1;U.uVel.value.y+=(vy*.02-U.uVel.value.y)*.1;
- const tx=hasMouse?mx:Math.sin(t*.3)*W*.12,ty=hasMouse?my:Math.cos(t*.23)*H*.1;
- lens.x+=(tx-lens.x)*.085;lens.y+=(ty-lens.y)*.085;
- const targetA=(down?1.7:2.5);U.uA.value+=(targetA-U.uA.value)*.08;
+ let tx=hasMouse?mx:Math.sin(t*.3)*W*.12,ty=hasMouse?my:Math.cos(t*.23)*H*.1;
+ {let bd=1e9,bc=null;for(let i=0;i<grid.length;i++){const c=centerOf(i,t);const d=(c[0]-tx)**2+(c[1]-ty)**2;if(d<bd){bd=d;bc=c;}}if(bc){tx=bc[0];ty=bc[1];}}
+ lens.x+=(tx-lens.x)*.12;lens.y+=(ty-lens.y)*.12;
+ const targetA=(down?2.2:3.6);U.uA.value+=(targetA-U.uA.value)*.08;
  hover=pick();showLabel(hover);
  const R0=U.uR.value;
- const lxp=W/2+lens.x-R0*1.2,lyp=H/2-lens.y-R0*2.55;
+ const lxp=Math.min(W-380,W/2+lens.x-R0*3.2),lyp=Math.min(H-170,H/2-lens.y+R0*3.4);
  label.style.transform=`translate(${Math.max(16,lxp)}px,${Math.max(70,lyp)}px)`;
  R.render(S,cam);requestAnimationFrame(loop);
 }

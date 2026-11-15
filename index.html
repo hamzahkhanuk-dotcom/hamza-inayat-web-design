@@ -286,6 +286,13 @@ body.go h1 b{transform:none}
 .revs:focus-visible{outline:2px solid var(--ink);outline-offset:6px}
 @media(max-width:1000px){.revs{grid-auto-columns:calc((100% - 24px)/2)}}
 @media(max-width:620px){.revs{grid-auto-columns:86%}.rhead{margin-top:56px}}
+
+/* hero loop line: stop layout jumps on small screens */
+#heroLoop{display:block;min-height:3.2em}
+@media(max-width:620px){
+ header.hero .lab{flex-direction:column;gap:10px}
+ #heroLoop{min-height:3.2em;max-width:100%}
+}
 </style>
 </head>
 <body>
@@ -641,7 +648,7 @@ body.go h1 b{transform:none}
   // hero line keeps changing
   var HL=['Independent web designer \u00b7 London, UK','WordPress websites \u00b7 Shopify stores','Restaurants \u00b7 Barbers \u00b7 Caf\u00e9s \u00b7 Shops','Premium design \u00b7 Fast delivery','Working with clients UK & worldwide'];
   var hl=document.getElementById('heroLoop'),hi=0;
-  if(hl)setInterval(function(){if(!document.body.classList.contains('go'))return;hi=(hi+1)%HL.length;scramble(hl,HL[hi],900)},3600);
+  if(hl)setInterval(function(){if(!document.body.classList.contains('go'))return;hi=(hi+1)%HL.length;scramble(hl,HL[hi],innerWidth<620?650:900)},innerWidth<620?4800:3600);
 
   // giant name: fit exactly + reveal
   var gi=document.getElementById('giant'),gw=document.getElementById('giantW');

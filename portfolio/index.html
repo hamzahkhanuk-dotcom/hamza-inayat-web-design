@@ -116,7 +116,7 @@ atlas.anisotropy=8;atlas.generateMipmaps=true;atlas.minFilter=THREE.LinearMipmap
 
 const U={uOffset:{value:new THREE.Vector2()},uLens:{value:new THREE.Vector2()},uRes:{value:new THREE.Vector2(W,H)},
  uTile:{value:new THREE.Vector2(22,33)},uCell:{value:new THREE.Vector2(28,40)},uField:{value:new THREE.Vector2()},
- uTime:{value:0},uA:{value:2.9},uR:{value:118},uAtlas:{value:atlas},uFilter:{value:-1},uSel:{value:-1},uIntro:{value:0},uVel:{value:new THREE.Vector2()}};
+ uTime:{value:0},uA:{value:2.5},uR:{value:78},uAtlas:{value:atlas},uFilter:{value:-1},uSel:{value:-1},uIntro:{value:0},uVel:{value:new THREE.Vector2()}};
 const VS=`
 attribute vec2 aGrid;attribute float aTex;attribute float aType;attribute float aId;
 uniform vec2 uOffset,uLens,uRes,uTile,uCell,uField,uVel;uniform float uTime,uA,uR,uFilter,uSel,uIntro;
@@ -187,7 +187,7 @@ function size(){
  W=innerWidth;H=innerHeight;R.setSize(W,H,false);
  cam.left=-W/2;cam.right=W/2;cam.top=H/2;cam.bottom=-H/2;cam.updateProjectionMatrix();
  U.uRes.value.set(W,H);
- const sm=W<700;U.uTile.value.set(sm?18:22,sm?27:33);U.uCell.value.set(sm?23:28,sm?33:40);U.uR.value=sm?85:118;
+ const sm=W<700;U.uTile.value.set(sm?18:22,sm?27:33);U.uCell.value.set(sm?23:28,sm?33:40);U.uR.value=sm?58:78;
  build();
 }
 addEventListener('resize',size);size();
@@ -255,7 +255,7 @@ function loop(){
  U.uVel.value.x+=((down?vx:vx)*.02-U.uVel.value.x)*.1;U.uVel.value.y+=(vy*.02-U.uVel.value.y)*.1;
  const tx=hasMouse?mx:Math.sin(t*.3)*W*.12,ty=hasMouse?my:Math.cos(t*.23)*H*.1;
  lens.x+=(tx-lens.x)*.085;lens.y+=(ty-lens.y)*.085;
- const targetA=(down?2.0:2.9);U.uA.value+=(targetA-U.uA.value)*.08;
+ const targetA=(down?1.7:2.5);U.uA.value+=(targetA-U.uA.value)*.08;
  hover=pick();showLabel(hover);
  const R0=U.uR.value;
  const lxp=W/2+lens.x-R0*1.2,lyp=H/2-lens.y-R0*2.55;
